@@ -1,1 +1,4 @@
- 
+ Datenpool
+ In diesem Verzeichnis sollen die Daten des Verfahrens strukturiert abgelegt werden.
+ Dies soll der zentrale Ablagepunkt für alle dateibasierten Daten sein.
+ Neben diesem Pool sollen Daten nur noch in der Datenbank liegen.
