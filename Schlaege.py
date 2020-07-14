@@ -131,4 +131,8 @@ Ersparnis = gdfgesamtkostenformer - gdfgesamtkosten
 
 #gdf["Umfang"]= gdf['geometry'].
 
+gdf["diesel"]= (5.3254*gdf["area"]**2- 0.463*gdf["area"]**3 - 22.897*gdf["area"] + 156.67)*gdf["area"]
+gdfformer["diesel"] = (-0.463*gdfformer["area"]**3 + 5.3254*gdfformer["area"]**2 - 22.897*gdfformer["area"] + 156.67)*gdfformer["area"]
 
+Dieselersparnis = gdfformer.sum().diesel - gdf.sum().diesel
+CO2_aequivalent_kg = Dieselersparnis * 2.6
