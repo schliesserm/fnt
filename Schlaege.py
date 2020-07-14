@@ -93,7 +93,7 @@ gdf.head(2)
 
 
 #Kosten per Schlag nachher = area * xx
-gdf["kosten"]= 0.4313*gdf["area"]**4 - 8.8792*gdf["area"]**3 + 66.062*gdf["area"]**2 - 223.83*gdf["area"] + 809.24
+gdf["kosten"]= (0.4313*gdf["area"]**4 - 8.8792*gdf["area"]**3 + 66.062*gdf["area"]**2 - 223.83*gdf["area"] + 809.24)*gdf["area"]
 
 #TBD: BewirtschafterMatrix mit kosten per bewirtschafter
 #bewirtschafter[]
@@ -115,7 +115,7 @@ kostenperarea = gdfgesamtkosten/gdfgesamthektar
 gdfformer["area"] = gdfformer['geometry'].area/ 10**4
 
 #Kosten per Schlag nachher = area * xx
-gdfformer["kosten"]= 0.4313*gdfformer["area"]**4 - 8.8792*gdfformer["area"]**3 + 66.062*gdfformer["area"]**2 - 223.83*gdfformer["area"] + 809.24
+gdfformer["kosten"]= (0.4313*gdfformer["area"]**4 - 8.8792*gdfformer["area"]**3 + 66.062*gdfformer["area"]**2 - 223.83*gdfformer["area"] + 809.24)*gdf["area"]
 
 #summe aller kosten per bewirtschfter
 schlaggroeseavgformer=gdfformer.sum().area/gdfformer.index.size
@@ -126,5 +126,9 @@ gdfgesamthektarformer = gdfformer.sum().area
 kostenperareaformer = gdfgesamtkostenformer/gdfgesamthektarformer
 
 Ersparnis = gdfgesamtkostenformer - gdfgesamtkosten
+
+#jeden Schlag Umfang rechnen
+
+#gdf["Umfang"]= gdf['geometry'].
 
 
